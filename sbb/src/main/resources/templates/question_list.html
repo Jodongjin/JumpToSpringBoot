@@ -11,10 +11,14 @@
         </thead>
         <tbody>
         <tr th:each="question, loop : ${paging}">
-            <td th:text="${loop.count}"></td>
+            <td th:text="${paging.getTotalElements - (paging.number * paging.size) - loop.index}"></td>
             <td>
                 <!-- 자바 객체의 값을 더할 때 ||로 감싸줘야 함, 문자열 연결은 |문자 사용-->
                 <a th:href="@{|/question/detail/${question.id}|}" th:text="${question.subject}"></a>
+                <span class="text-danger small ms-2"
+                      th:if="${#lists.size(question.answerList) > 0}"
+                      th:text="${#lists.size(question.answerList)}">
+                </span>
             </td>
             <!-- #temporals.format(날짜 객체, 날짜 포맷) -->
             <td>[[ ${#temporals.format(question.createDate, 'yyyy-MM-dd HH:mm')} ]]</td>

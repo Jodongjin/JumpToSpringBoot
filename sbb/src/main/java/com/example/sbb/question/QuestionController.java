@@ -1,5 +1,6 @@
 package com.example.sbb.question;
 
+import com.example.sbb.answer.AnswerForm;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -28,7 +29,7 @@ public class QuestionController {
     }
 
     @GetMapping(value = "/detail/{id}") // value 생각 가능
-    public String detail(Model model, @PathVariable("id") Integer id) {
+    public String detail(Model model, @PathVariable("id") Integer id, AnswerForm answerForm) {
         Question question = this.questionService.getQuestion(id);
         model.addAttribute("question", question);
         return "question_detail";
