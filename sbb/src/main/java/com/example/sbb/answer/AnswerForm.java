@@ -14,4 +14,8 @@ public class AnswerForm {
     public AnswerForm(String content) {
         this.content = content;
     }
+
+    public void editContent(String content) {
+        this.content = content;
+    }
 }

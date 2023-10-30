@@ -19,4 +19,12 @@ public class QuestionForm {
         this.subject = subject;
         this.content = content;
     }
+
+    public void editSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public void editContent(String content) {
+        this.content = content;
+    }
 }
